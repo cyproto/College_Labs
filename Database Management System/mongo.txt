@@ -1,0 +1,86 @@
+> use abcd;
+switched to db abcd
+> show dbs;
+abc     0.000GB
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> use abcd;
+switched to db abcd
+> db.createCollection("Student");
+{ "ok" : 1 }
+> db.Student.insert({"Name":"Cameron","Rollno":1,"Subject":"DSA","Marks":50});
+WriteResult({ "nInserted" : 1 })
+> db.Student.insert({"Name":"Justine","Rollno":2,"Subject":"DSA","Marks":60});
+WriteResult({ "nInserted" : 1 })
+> db.Student.insert({"Name":"Brynne","Rollno":3,"Subject":"DSA","Marks":65});
+WriteResult({ "nInserted" : 1 })
+> db.Student.insert({"Name":"Rigel","Rollno":4,"Subject":"DSA","Marks":20});
+WriteResult({ "nInserted" : 1 })
+> db.Student.find().pretty()
+{
+        "_id" : ObjectId("5dd2be7d2a8f88cbab79a61f"),
+        "Name" : "Cameron",
+        "Rollno" : 1,
+        "Subject" : "DSA",
+        "Marks" : 50
+}
+{
+        "_id" : ObjectId("5dd2be8f2a8f88cbab79a620"),
+        "Name" : "Justine",
+        "Rollno" : 2,
+        "Subject" : "DSA",
+        "Marks" : 60
+}
+{
+        "_id" : ObjectId("5dd2be9c2a8f88cbab79a621"),
+        "Name" : "Brynne",
+        "Rollno" : 3,
+        "Subject" : "DSA",
+        "Marks" : 65
+}
+{
+        "_id" : ObjectId("5dd2beac2a8f88cbab79a622"),
+        "Name" : "Rigel",
+        "Rollno" : 4,
+        "Subject" : "DSA",
+        "Marks" : 20
+}
+> db.Student.find({"Name":"Rigel"}).pretty();
+{
+        "_id" : ObjectId("5dd2beac2a8f88cbab79a622"),
+        "Name" : "Rigel",
+        "Rollno" : 4,
+        "Subject" : "DSA",
+        "Marks" : 20
+}
+> db.Student.update({"Name":"Rigel"}, {$set: {"Marks":100}});
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.Student.find({"Name":"Rigel"}).pretty();
+{
+        "_id" : ObjectId("5dd2beac2a8f88cbab79a622"),
+        "Name" : "Rigel",
+        "Rollno" : 4,
+        "Subject" : "DSA",
+        "Marks" : 100
+}
+> db.Student.remove({"Title":"Rigel"});
+WriteResult({ "nRemoved" : 0 })
+> db.Student.find({"Name":"Rigel"}).pretty();
+{
+        "_id" : ObjectId("5dd2beac2a8f88cbab79a622"),
+        "Name" : "Rigel",
+        "Rollno" : 4,
+        "Subject" : "DSA",
+        "Marks" : 100
+}
+> db.Student.remove({"Name":"Rigel"});
+WriteResult({ "nRemoved" : 1 })
+> db.Student.find({"Name":"Rigel"}).pretty();
+> db.Student.find({"Name":"Rigel", $or:[{"Marks":65}]})
+> db.Student.find({"Name":"Rigel", $or:[{"Marks":100}]})
+> db.Student.find({"Subject":"DSA"})
+{ "_id" : ObjectId("5dd2be7d2a8f88cbab79a61f"), "Name" : "Cameron", "Rollno" : 1, "Subject" : "DSA", "Marks" : 50 }
+{ "_id" : ObjectId("5dd2be8f2a8f88cbab79a620"), "Name" : "Justine", "Rollno" : 2, "Subject" : "DSA", "Marks" : 60 }
+{ "_id" : ObjectId("5dd2be9c2a8f88cbab79a621"), "Name" : "Brynne", "Rollno" : 3, "Subject" : "DSA", "Marks" : 65 }
+>
