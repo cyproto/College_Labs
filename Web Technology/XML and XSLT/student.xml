@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="students.xsl"?>
+<class> 
+  <student roll="1">
+    <name>Cameron</name>
+    <subject>DSA</subject>
+	<marks>90</marks>
+  </student>
+  <student roll="2">
+    <name>Justine</name>
+    <subject>DSA</subject>
+	<marks>60</marks>
+  </student>
+  <student roll="3">
+    <name>Brynne</name>
+    <subject>DSA</subject>
+	<marks>55</marks>
+  </student>
+  <student roll="4">
+    <name>Rigel</name>
+    <subject>DSA</subject>
+	<marks>35</marks>
+  </student>
+  <student roll="5">
+    <name>Kato</name>
+    <subject>DSA</subject>
+	<marks>22</marks>
+  </student>
+</class>
