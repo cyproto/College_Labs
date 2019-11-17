@@ -1,0 +1,140 @@
+<html>
+    <head>
+    <title>Form</title>
+    </head>
+    <style>
+        body
+        {
+            text-align : center;
+            font-size: 30px;       
+            font-family: Verdana, Geneva, sans-serif;     
+        }
+        .ip
+        {
+            border: 1px solid;
+            border-radius: 5px;
+            width: 200px;
+            height: 30px;
+        }
+        .tab{
+            border : 2px solid black;
+            border-radius: 15px;
+            padding: 30px; 
+            width: 30%;
+            font-size: 20px;
+        }
+        .abc
+        {
+            width: 25%;
+            border: 2px solid black;
+            padding: 100px;
+            margin: 10%;
+            outline: red solid 5px;
+            outline-offset: 3px;
+            outline-style:groove;
+        }
+        #img
+        {
+            border-radius: 50%;
+        }
+        #butt1
+        {
+            background-color: aquamarine;
+            border: 1px solid black;
+            color: black;
+            padding: 10px 20px;
+            text-align: center;
+            border-radius: 20px;
+        }
+        #butt2
+        {
+            background-color: #20639B;
+            border: 1px solid black;
+            color: black;
+            padding: 10px 20px;
+            text-align: center;
+            border-radius: 20px;
+        }
+        .div1
+        {
+            
+        }
+    </style>
+    <script>
+        function validate()
+        {
+			console.log(document.form.date.value);
+			if(document.form.name.value==""||document.form.name.value==null)
+            {
+                alert("Invalid name");
+                return false;
+            }
+			if((document.form.gender[0].checked == false ) && ( document.form.gender[1].checked == false )){
+				alert("Choose gender");
+				return false;
+			}
+			var datere = /^([0-9]{4})-([0-9]{2})-([0-9]{2})$/;
+			if(!document.form.date.value.match(datere)){
+				alert("Enter date of birth");
+				return false;
+			}
+			var emailre = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+			if(!document.form.email.value.match(emailre)){
+				alert("Invalid email");
+				return false;
+			}
+			var phonere = /^([0|\+[0-9]{1,5})?([7-9][0-9]{9})$/;
+            if(!document.form.number.value.match(phonere)){
+				alert("Invalid number");
+				return false;
+			}
+			if(document.form.address.value==""||document.form.address.value==null){
+				alert("Invalid address");
+				return false;
+			}
+			alert("Submitted successfully");
+            return true;
+        }
+    </script>
+    <body>
+        <div class="div1">
+        </div>
+        <form onsubmit="return validate()" name="form" method="POST">
+            <h4>Form</h4>
+            <table cellspacing="20" cellpadding="10" align="center" class="tab" >
+                <tr><td align="center" id="img" colspan="2"><img src="avatar.png" width="150"></td></tr>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" class="ip" id="name"></td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td>
+                        <input type="radio" name="gender">Male
+                        <input type="radio" name="gender">Female
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date of Birth:</td>
+                    <td><input type="date" name="date" style="width:100%; border: solid 1px black; padding:5px; border-radius:5px;"></td>
+                </tr>
+                <tr>
+                        <td>Email:</td>
+                        <td><input type="email" name="email" class="ip"></td>
+                </tr>   
+                <tr>
+                    <td>Phone:</td>
+                    <td><input type="text" class="ip" name="number"></td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td><input type="text" class="ip" name="address"></td>
+                </tr>
+                <tr>
+                    <td align="center"><input id="butt1" hspace="30" type="submit" ></td>
+                    <td align="center"><input id="butt2" type="reset"></td>
+                </tr>
+                </table>
+            </form>
+        </body>
+</html>
