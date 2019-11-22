@@ -1,0 +1,33 @@
+h1{
+  background:#232020;
+  color: #f4f4f4;
+  text-align: center;
+  padding: 5px;
+  border-radius: 10px;
+}
+.col-md-12{
+  margin-top: 20%;
+}
+.inputBox{
+  border: none;
+  margin: 5px;
+  height: 30px;
+  padding-left: 10px;
+  border-radius: 10px;
+  background: #f4f4f4;
+}
+.inputBox:focus{
+  outline: none;
+}
+.rad{
+  margin: 5px;
+  padding-left: 10px;
+}
+.result{
+  margin: 5px;
+  background: #faeee7;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+}
